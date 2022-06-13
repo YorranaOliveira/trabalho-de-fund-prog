@@ -33,7 +33,7 @@ function setSong(e) {
   source.src = "songs/" + e.target.innerText;
   document.getElementById(
     "currentSong"
-  ).innerText = `Now Playing:  ${e.target.innerText}`;
+  ).innerText =  e.target.innerText;
 
   player.load();
   player.play();
