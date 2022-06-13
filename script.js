@@ -7,6 +7,7 @@ const songs = [
   "Pra sempre",
 ];
 const player = document.getElementById("player");
+const progress_bar = document.getElementById('progress')
 
 const createSongList = () => {
   const list = document.createElement("ol");
@@ -62,3 +63,15 @@ function updateProgress() {
     progressBar.value = (player.currentTime / player.duration) * 100;
   }
 }
+
+progress_bar.addEventListener('click', (event) => {
+
+  let totalX = progress_bar.clientWidth;
+  let mouseX = event.offsetX;
+  let song_duration = player.duration;
+  let new_time = parseInt((mouseX * song_duration) / totalX)
+
+  player.currentTime = new_time;
+  progress_bar.value = (new_time * 100) / song_duration;
+  
+})
